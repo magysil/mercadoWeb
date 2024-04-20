@@ -32,6 +32,7 @@ class Server{
     middlewares(){
         this.app.use (express.static('public'));
         this.app.use('/img', express.static( `${__dirname}/../public/assets/img`));
+        this.app.use('/css', express.static( `${__dirname}/../public/assets/css`));        
         this.app.use('/bootstrap', express.static(`${__dirname}/../node_modules/bootstrap/dist`));
         this.app.use('/bootstrap-icons', express.static(`${__dirname}/../node_modules/bootstrap-icons`));
         this.app.use('/jquery', express.static(`${__dirname}/../node_modules/jquery/dist`))
