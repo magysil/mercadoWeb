@@ -1,0 +1,17 @@
+/* Estilo para las imágenes dentro del modal */
+
+#productoModalBody {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.producto-seleccionado {
+     flex: 0 0 25%;
+    padding: 10px; 
+    
+}
+
+.producto-imagen {
+    width: 100%;
+   
+}

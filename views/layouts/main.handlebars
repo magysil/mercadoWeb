@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercado Web</title>
+     <link rel="icon" href="/img/cart4.svg" type="image/svg+xml">
+    {{!-- Instalación de css --}}
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+<body>
+
+    <!-- Estoy en el Layout main -->
+      {{{body}}}
+  
+
+    {{!-- Instalación js --}}
+    <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/jquery/jquery.min.js"></script>
+
+
+
+<script>
+
+//Función para manejar los productos en el Modal
+const agregarProductoButtons = document.querySelectorAll('.agregar-producto');
+const productoModalBody = document.getElementById('productoModalBody');
+
+//Al hacer click en una imagen del producto, se elimina del Modal
+productoModalBody.addEventListener('click',(event) => {
+    if (event.target.classList.contains('producto-imagen')) {
+        // Elimina el producto al que se le hizo clic
+        event.target.closest('.producto-seleccionado').remove();
+    }
+});
+
+
+//Al hacer click el boton agregar, el producto se agrega al Modal
+agregarProductoButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        const nombre = this.getAttribute('data-nombre');
+        const imagen = this.getAttribute('data-imagen');
+
+        // Crear un nuevo elemento para el producto
+        const productoDiv = document.createElement('div');
+        productoDiv.classList.add('producto-seleccionado');
+
+        // Contenido del producto
+        productoDiv.innerHTML = `
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="producto-container text-center">
+                        <img src="${imagen}" class="img-fluid mb-3 producto-imagen" alt="${nombre}">
+                        <h5 class="producto-nombre">${nombre}</h5>                        
+                    </div>
+                </div>
+            </div>          
+        `;
+
+        // Agrega el nuevo producto al contenido existente del modal
+        productoModalBody.appendChild(productoDiv);
+
+        $('#productoModal').modal('show');
+    });
+});
+
+</script>
+
+</body>
+</html>

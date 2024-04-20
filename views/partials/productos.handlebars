@@ -1,0 +1,28 @@
+{{!-- {{#each productos}} --}}  
+<div class="col-md-4">
+    <div class="card mt-3 ms-5 d-flex justify-content-center align-items-center" style="width: 15rem;">
+        <img src="{{ imagen }}" class="card-img-top" alt="{{ nombre }}">
+        <div class="card-body">
+            <h5 class="card-title">{{ nombre }}</h5>
+            <button type="button" class="btn btn-success agregar-producto"
+                    data-nombre="{{ nombre }}" data-imagen="{{ imagen }}">Agregar</button>          
+        </div>
+    </div>
+</div>
+   {{!-- {{/each}} --}}
+
+   {{!-- Modal --}}
+
+   <div class="modal fade" id="productoModal" tabindex="-1" aria-labelledby="productoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productoModalLabel">Productos</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="productoModalBody">
+                    <!-- Aquí se mostrarán los detalles del producto -->
+                </div>
+            </div>
+        </div>
+    </div>
